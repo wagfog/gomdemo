@@ -14,9 +14,10 @@ type Category struct {
 	CategoryDataService service.ICategoryDataService
 }
 
-func (c *Category) CreateCategory(ctx context.Context, request *category.CategoryRequest, resp *category.CreateCategoryResponse) error {
+// 提供创建分类的服务
+func (c *Category) CreateCategory(ctx context.Context, request *category.CategoryRequest, response *category.CreateCategoryResponse) error {
 	category := &model.Category{}
-	//
+	//赋值
 	err := common.SwapTo(request, category)
 	if err != nil {
 		return err
@@ -25,40 +26,44 @@ func (c *Category) CreateCategory(ctx context.Context, request *category.Categor
 	if err != nil {
 		return err
 	}
-	resp.Message = "add category success"
-	resp.CategoryId = categoryId
+	response.Message = "分类添加成功"
+	response.CategoryId = categoryId
 	return nil
 }
 
-func (c *Category) UpdateCategory(ctx context.Context, request *category.CategoryRequest, resp *category.UpdateCategoryResponse) error {
+// 提供分类更新服务
+func (c *Category) UpdateCategory(ctx context.Context, request *category.CategoryRequest, response *category.UpdateCategoryResponse) error {
 	category := &model.Category{}
-	err := common.SwapTo(resp, category)
+	err := common.SwapTo(response, category)
 	if err != nil {
 		return err
 	}
 	err = c.CategoryDataService.UpdateCategory(category)
 	if err != nil {
-		return nil
+		return err
 	}
-	resp.Message = "update category success"
+	response.Message = "分类更新成功"
 	return nil
 }
 
-func (c *Category) DeleteCategory(ctx context.Context, request *category.DeleteCategoryRequest, resp *category.DeleteCategoryResponse) error {
+// 提供分类删除服务
+func (c *Category) DeleteCategory(ctx context.Context, request *category.DeleteCategoryRequest, response *category.DeleteCategoryResponse) error {
 	err := c.CategoryDataService.DeleteCategory(request.CategoryId)
 	if err != nil {
 		return nil
 	}
-	resp.Message = "delete success"
+	response.Message = "删除成功"
 	return nil
 }
 
-func (c *Category) FindCategory(ctx context.Context, request *category.FindByNameRequest, resp *category.CategoryResponse) error {
+// 根据分类名称查找分类
+func (c *Category) FindCategoryByName(ctx context.Context, request *category.FindByNameRequest, response *category.CategoryResponse) error {
 	category, err := c.CategoryDataService.FindCategoryByName(request.CategoryName)
 	if err != nil {
 		return err
 	}
-	return common.SwapTo(category, resp)
+	return common.SwapTo(category, response)
+
 }
 
 // 根据分类ID查找分类
