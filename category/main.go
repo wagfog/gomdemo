@@ -52,7 +52,7 @@ func main() {
 	rp := repository.NewCategoryRepository(db)
 	rp.InitTable()
 	//初始化服务
-	srv.Init()
+
 	categoryDateService := service.NewCategoryDataService(repository.NewCategoryRepository(db))
 
 	err = category.RegisterCategoryHandler(srv.Server(),
