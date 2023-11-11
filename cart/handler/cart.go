@@ -3,10 +3,10 @@ package handler
 import (
 	"context"
 
-	"cart/common"
-	"cart/domain/model"
-	"cart/domain/service"
-	cart "cart/proto"
+	"github.com/wagfog/micro_cart/common"
+	"github.com/wagfog/micro_cart/domain/model"
+	"github.com/wagfog/micro_cart/domain/service"
+	cart "github.com/wagfog/micro_cart/proto"
 )
 
 type Cart struct {

@@ -1,8 +1,8 @@
 package service
 
 import (
-	"cart/domain/model"
-	"cart/domain/repository"
+	"github.com/wagfog/micro_cart/domain/model"
+	"github.com/wagfog/micro_cart/domain/repository"
 )
 
 type ICartDataService interface {

@@ -1,12 +1,12 @@
 package main
 
 import (
-	"cart/common"
-	"cart/domain/repository"
-	"cart/handler"
-	cart "cart/proto"
+	"github.com/wagfog/micro_cart/common"
+	"github.com/wagfog/micro_cart/domain/repository"
+	"github.com/wagfog/micro_cart/handler"
+	cart "github.com/wagfog/micro_cart/proto"
 
-	service2 "cart/domain/service"
+	service2 "github.com/wagfog/micro_cart/domain/service"
 
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/mysql"
