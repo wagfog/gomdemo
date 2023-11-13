@@ -1,0 +1,17 @@
+#declera version
+version: "3"
+services:
+  #service nmae 
+  #  consul-imooc:
+  # image: cap1573/consul
+  # ports:
+  #   - "8500:8500"
+  jaeger-imooc:
+    image: cap1573/jaeger
+    ports:
+      - "6831:6831/udp"
+      - "16686:16686"
+  hystrix-dashboard:
+    image: cap1573/hystrix-dashboard
+    ports:
+     - "9002:9002"

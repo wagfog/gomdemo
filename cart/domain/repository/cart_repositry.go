@@ -1,9 +1,8 @@
 package repository
 
 import (
-	"errors"
-
 	"github.com/wagfog/micro_cart/domain/model"
+	"errors"
 
 	"github.com/jinzhu/gorm"
 )
